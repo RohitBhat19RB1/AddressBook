@@ -3,7 +3,7 @@ package addressBook;
 
 public interface AddressBookInterface {
 
-	public void addPerson();
+	public void addPerson(String n);
 	public void editPerson();
 	public void deletePerson();
 	public void searchPerson();
