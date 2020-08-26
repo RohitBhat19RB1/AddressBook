@@ -1,5 +1,6 @@
 package addressBook;
 import java.io.*;
+import java.io.FileNotFoundException;
 import java.util.*;
 
 public class AddressBookManagerImplementation implements AddressBookManagerInterface {
@@ -54,7 +55,7 @@ public class AddressBookManagerImplementation implements AddressBookManagerInter
 							    System.out.println("Enter state = ");
 								String state = sc.next();
 								System.out.println("Enter zipcode = ");
-								int zipCode = sc.nextInt();
+								long zipCode = sc.nextLong();
 								System.out.println("Enter phone number = ");
 								long pNum = sc.nextLong();
 								//construct new person object
@@ -85,11 +86,74 @@ public class AddressBookManagerImplementation implements AddressBookManagerInter
 	}
 	@Override
 	public void openAddressBook()  {
-	
+		System.out.println("Total AddressBooks present  ");
+  	  File file = new File("C:\\AddressBook\\");
+  	  String[] files=file.list();
+  	   for (String string : files) {
+  	  System.out.println(string);
+  	   }
+		System.out.println("Enter the name of Address Book you want to open --- ");
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(System.in);
+		String name1 = sc.next();
+		 try {
+		      File myObj = new File("C:\\AddressBook\\"+name1);
+		      Scanner myReader = new Scanner(myObj);
+		      while (myReader.hasNextLine()) {
+		        String data = myReader.nextLine();
+		        System.out.println(data);
+		      }
+		      myReader.close();
+		    } catch (FileNotFoundException e) {
+		      System.out.println("An error occurred.");
+		      e.printStackTrace();
+		    }
+		 
+		 	System.out.println("Please Choose from the below given Options what Operations would you like to perform");
+		 	System.out.println();
+		 	System.out.println("\t Enter (1) to add new Person");
+			System.out.println("\t Enter (2) to edit any Person");
+			System.out.println("\t Enter (3) to delete any Person");
+			System.out.println("\t Enter (4) to search Person");
+			System.out.println("\t Enter (5) to sort by Zip");
+			System.out.println("\t Enter (6) to sort by name");
+			System.out.println("\t Enter (7) to display");
+			System.out.println();
+			
+			try (Scanner sci = new Scanner(System.in)){
+				System.out.print("Please Enter your choice  --->");
+				int ch = sci.nextInt();
+				
+				switch(ch) {
+				case 1:
+				ab.addPerson(name1);
+					break;
+				case 2:
+				ab.editPerson();
+				break;
+				case 3:
+				ab.deletePerson();
+				break;
+				case 4:
+				ab.searchPerson();
+				break;
+				case 5:
+				ab.sortByZip();
+				break;
+				case 6:
+				ab.sortByNames();
+				break;
+				case 7:
+				ab.display();
+				break;	
+				default:
+					System.out.println("please enter your choice from the menu");
+				}
+				}
+		
 	}
 	@Override
 	public void saveAddressBook() {
-
 		
 	}
 	@Override
