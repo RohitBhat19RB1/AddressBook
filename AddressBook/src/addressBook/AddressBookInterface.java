@@ -16,4 +16,6 @@ public interface AddressBookInterface {
 
 	public void display();
 
+	public void quit();
+
 }

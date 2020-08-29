@@ -372,4 +372,8 @@ public class AddressBookImplementation implements AddressBookInterface {
 		}
 	}
 
+	public void quit() {
+		System.exit(0);
+	}
+
 }
