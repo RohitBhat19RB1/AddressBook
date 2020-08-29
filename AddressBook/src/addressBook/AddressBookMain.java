@@ -12,12 +12,12 @@ public class AddressBookMain {
 		System.out.println("\n");
 		System.out.println("Please Choose from the below given Options what Operation would you like to perform");
 		System.out.println();
-		System.out.println("\t Enter (1) to Create new Address Book");
-		System.out.println("\t Enter (2) to Open Address Book");
-		System.out.println("\t Enter (3) to Save Address Book");
-		System.out.println("\t Enter (4) to SaveAs Address Book");
-		System.out.println("\t Enter (5) to Close Address Book");
-		System.out.println("\t Enter (6) to Quit");
+		System.out.println("\t\t Enter (1) to Create new Address Book");
+		System.out.println("\t\t Enter (2) to Open Address Book");
+		System.out.println("\t\t Enter (3) to Save Address Book");
+		System.out.println("\t\t Enter (4) to SaveAs Address Book");
+		System.out.println("\t\t Enter (5) to Close Address Book");
+		System.out.println("\t\t Enter (6) to Quit");
 		System.out.println();
 
 		try (Scanner sc = new Scanner(System.in)) {
