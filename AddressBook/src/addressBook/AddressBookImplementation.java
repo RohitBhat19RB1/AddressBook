@@ -169,6 +169,42 @@ public class AddressBookImplementation implements AddressBookInterface {
 	}
 
 	public void searchPerson(String n) {
+		boolean found = false;
+		String firstName = "";
+		String lastName = "";
+		String city = "";
+		String state = "";
+		String zipCode = "";
+		String pNum = "";
+		System.out.println("Enter the contact number of person you want to search = ");
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(System.in);
+		String number = sc.next();
+		Scanner x;
+
+		try {
+			x = new Scanner(new File("C:\\AddressBook\\" + n));
+			x.useDelimiter("[ \n]");
+			while (x.hasNext()) {
+				firstName = x.next();
+				lastName = x.next();
+				city = x.next();
+				state = x.next();
+				zipCode = x.next();
+				pNum = x.next();
+				if (pNum.equals(number)) {
+					found = true;
+				}
+			}
+			if (found == true) {
+				System.out.println("firstName=" + firstName + ", lastName=" + lastName + ", city=" + city + ", state="
+						+ state + ", zipCode=" + zipCode + ", phone number=" + pNum);
+			} else {
+				System.out.println("Record not found");
+			}
+		} catch (Exception e) {
+			System.out.println("error");
+		}
 
 	}
 
