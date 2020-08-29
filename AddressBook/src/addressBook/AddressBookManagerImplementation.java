@@ -114,49 +114,53 @@ public class AddressBookManagerImplementation implements AddressBookManagerInter
 
 		System.out.println("Please Choose from the below given Options what Operations would you like to perform");
 		System.out.println();
-		System.out.println("\t Enter (1) to add new Person");
-		System.out.println("\t Enter (2) to edit any Person");
-		System.out.println("\t Enter (3) to delete any Person");
-		System.out.println("\t Enter (4) to search Person");
-		System.out.println("\t Enter (5) to sort by Zip");
-		System.out.println("\t Enter (6) to sort by name");
-		System.out.println("\t Enter (7) to display");
-		System.out.println();
+		while (true) {
+			System.out.println("\t Enter (1) to add new Person");
+			System.out.println("\t Enter (2) to edit any Person");
+			System.out.println("\t Enter (3) to delete any Person");
+			System.out.println("\t Enter (4) to search Person");
+			System.out.println("\t Enter (5) to sort by Zip");
+			System.out.println("\t Enter (6) to sort by name");
+			System.out.println("\t Enter (7) to display");
+			System.out.println("\t Enter (8) to quit");
+			System.out.println();
 
-		try (Scanner sci = new Scanner(System.in)) {
-			System.out.print("Please Enter your choice  --->");
-			int ch = sci.nextInt();
-			switch (ch) {
-			case 1:
-				ab.addPerson(name1);
-				break;
-			case 2:
-				System.out.println("Enter the phone number of the person u want to edit-");
-				String number = sci.next();
-				ab.editPerson(name1, number);
-				break;
-			case 3:
-				System.out.println("Enter the phone number of the person u want to delete-");
-				String number1 = sci.next();
-				ab.deletePerson(name1, number1);
-				break;
-			case 4:
-				ab.searchPerson(name1);
-				break;
-			case 5:
-				ab.sortByZip(name1);
-				break;
-			case 6:
-				ab.sortByNames(name1);
-				break;
-			case 7:
-				ab.display();
-				break;
-			default:
-				System.out.println("please enter your choice from the menu");
+			try (Scanner sci = new Scanner(System.in)) {
+				System.out.print("Please Enter your choice  --->");
+				int ch = sci.nextInt();
+				switch (ch) {
+				case 1:
+					ab.addPerson(name1);
+					break;
+				case 2:
+					System.out.println("Enter the phone number of the person u want to edit-");
+					String number = sci.next();
+					ab.editPerson(name1, number);
+					break;
+				case 3:
+					System.out.println("Enter the phone number of the person u want to delete-");
+					String number1 = sci.next();
+					ab.deletePerson(name1, number1);
+					break;
+				case 4:
+					ab.searchPerson(name1);
+					break;
+				case 5:
+					ab.sortByZip(name1);
+					break;
+				case 6:
+					ab.sortByNames(name1);
+					break;
+				case 7:
+					ab.display();
+					break;
+				case 8:
+					ab.quit();
+				default:
+					System.out.println("please enter your choice from the menu");
+				}
 			}
 		}
-
 	}
 
 	@Override
@@ -171,12 +175,6 @@ public class AddressBookManagerImplementation implements AddressBookManagerInter
 
 	@Override
 	public void closeAddressBook() {
-
-	}
-
-	@Override
-	public void quit() {
-		// TODO Auto-generated method stub
 
 	}
 

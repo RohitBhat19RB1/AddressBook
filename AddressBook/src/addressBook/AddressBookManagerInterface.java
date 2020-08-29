@@ -12,6 +12,4 @@ public interface AddressBookManagerInterface {
 
 	public void closeAddressBook();
 
-	public void quit();
-
 }
