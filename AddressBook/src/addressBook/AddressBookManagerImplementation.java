@@ -214,6 +214,7 @@ public class AddressBookManagerImplementation implements AddressBookManagerInter
 	@Override
 	public void closeAddressBook() {
 
+		System.exit(0);
 	}
 
 }
