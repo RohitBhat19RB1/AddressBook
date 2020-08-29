@@ -1,67 +1,91 @@
 package addressBook;
 
-public class Person  {
+public class Person implements Comparable<Person> {
 	String firstName;
 	String lastName;
 	String city;
 	String state;
-	int zipCode;
-	long pNum;
-	
-	//standard setters
+	String zipCode;
+	String pNum;
+
+	public int namecompare(Person p1, Person p2) {
+		return p1.firstName.compareTo(p2.firstName);
+	}
+
+	public int zipcompare(Person p1, Person p2) {
+		return p1.zipCode.compareTo(p2.zipCode);
+	}
+
+	// standard setters
 	public void setfirstName(String fName) {
 		this.firstName = fName;
 	}
+
 	public void setlastName(String lName) {
 		this.lastName = lName;
 	}
+
 	public void setcity(String cityy) {
 		this.city = cityy;
 	}
+
 	public void setstate(String statee) {
 		this.state = statee;
 	}
-	public void setzipCode(int zipCodee) {
+
+	public void setzipCode(String zipCodee) {
 		this.zipCode = zipCodee;
 	}
-	public void setpNum(long pNumm) {
+
+	public void setpNum(String pNumm) {
 		this.pNum = pNumm;
 	}
-	//standard getters
+
+	// standard getters
 	public String getfirstName() {
 		return firstName;
 	}
+
 	public String getlastName() {
 		return lastName;
 	}
+
 	public String getcity() {
 		return city;
 	}
+
 	public String getstate() {
 		return state;
 	}
-	public int getzipCode() {
+
+	public String getzipCode() {
 		return zipCode;
 	}
-	public long getpNum() {
+
+	public String getpNum() {
 		return pNum;
 	}
-	
-	public Person(String firstName, String lastName, String city, String state, int zipCode2, long pNum2) {
+
+	public Person(String firstName, String lastName, String city, String state, String zipCode, String pNum) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.city = city;
 		this.state = state;
-		this.zipCode = zipCode2;
-		this.pNum = pNum2;
+		this.zipCode = zipCode;
+		this.pNum = pNum;
 	}
-		
+
 	@Override
 	public String toString() {
 		return "Person [firstName=" + firstName + ", lastName=" + lastName + ", city=" + city + ", state=" + state
 				+ ", zipCode=" + zipCode + ", pNum=" + pNum + "]";
 	}
-	
-}
 
+	@Override
+	public int compareTo(Person arg0) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}
