@@ -72,7 +72,7 @@ public class AddressBookManagerImplementation implements AddressBookManagerInter
 						pw.print(p.getcity() + " ");
 						pw.print(p.getstate() + " ");
 						pw.print(p.getzipCode() + " ");
-						pw.print(p.getpNum());
+						pw.print(p.getPhoneNumber());
 						pw.println();
 					}
 					pw.close();

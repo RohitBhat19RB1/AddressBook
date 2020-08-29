@@ -56,7 +56,7 @@ public class AddressBookImplementation implements AddressBookInterface {
 						fw.append(p.getcity() + " ");
 						fw.append(p.getstate() + " ");
 						pw.print(p.getzipCode() + " ");
-						pw.print(p.getpNum() + " ");
+						pw.print(p.getPhoneNumber() + " ");
 					}
 					fw.close();
 					pw.close();
@@ -130,7 +130,7 @@ public class AddressBookImplementation implements AddressBookInterface {
 					pw.println(p.getcity() + " ");
 					pw.println(p.getstate() + " ");
 					pw.println(p.getzipCode() + " ");
-					pw.println(p.getpNum() + " ");
+					pw.println(p.getPhoneNumber() + " ");
 				} else {
 					Person p = new Person(firstName, lastName, city, state, zipCode, pNum);
 					persons.add(p);
@@ -139,7 +139,7 @@ public class AddressBookImplementation implements AddressBookInterface {
 					pw.println(p.getcity() + " ");
 					pw.println(p.getstate() + " ");
 					pw.println(p.getzipCode() + " ");
-					pw.println(p.getpNum() + " ");
+					pw.println(p.getPhoneNumber() + " ");
 				}
 			}
 			x.close();
@@ -201,7 +201,7 @@ public class AddressBookImplementation implements AddressBookInterface {
 					pw.println(p.getcity() + " ");
 					pw.println(p.getstate() + " ");
 					pw.println(p.getzipCode() + " ");
-					pw.println(p.getpNum() + " ");
+					pw.println(p.getPhoneNumber() + " ");
 				}
 			}
 			x.close();
@@ -290,7 +290,7 @@ public class AddressBookImplementation implements AddressBookInterface {
 			writer.write(p.city + " ");
 			writer.write(p.state + " ");
 			writer.write(p.zipCode + " ");
-			writer.write(p.pNum + " ");
+			writer.write(p.phoneNumber + " ");
 			writer.newLine();
 		}
 
@@ -333,7 +333,7 @@ public class AddressBookImplementation implements AddressBookInterface {
 			writer.write(p.city + " ");
 			writer.write(p.state + " ");
 			writer.write(p.zipCode + " ");
-			writer.write(p.pNum + " ");
+			writer.write(p.phoneNumber + " ");
 			writer.newLine();
 		}
 

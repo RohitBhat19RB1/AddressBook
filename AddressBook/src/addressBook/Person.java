@@ -6,7 +6,7 @@ public class Person implements Comparable<Person> {
 	String city;
 	String state;
 	String zipCode;
-	String pNum;
+	String phoneNumber;
 
 	public int namecompare(Person p1, Person p2) {
 		return p1.firstName.compareTo(p2.firstName);
@@ -37,8 +37,8 @@ public class Person implements Comparable<Person> {
 		this.zipCode = zipCodee;
 	}
 
-	public void setpNum(String pNumm) {
-		this.pNum = pNumm;
+	public void setPhoneNumber(String pNumm) {
+		this.phoneNumber = pNumm;
 	}
 
 	// standard getters
@@ -62,8 +62,8 @@ public class Person implements Comparable<Person> {
 		return zipCode;
 	}
 
-	public String getpNum() {
-		return pNum;
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
 
 	public Person(String firstName, String lastName, String city, String state, String zipCode, String pNum) {
@@ -73,13 +73,13 @@ public class Person implements Comparable<Person> {
 		this.city = city;
 		this.state = state;
 		this.zipCode = zipCode;
-		this.pNum = pNum;
+		this.phoneNumber = pNum;
 	}
 
 	@Override
 	public String toString() {
 		return "Person [firstName=" + firstName + ", lastName=" + lastName + ", city=" + city + ", state=" + state
-				+ ", zipCode=" + zipCode + ", pNum=" + pNum + "]";
+				+ ", zipCode=" + zipCode + ", pNum=" + phoneNumber + "]";
 	}
 
 	@Override
