@@ -287,7 +287,7 @@ public class AddressBookImplementation implements AddressBookInterface {
 																									// object to write
 																									// into output text
 																									// file
-		for (Person p : persons) // Writing every Records into output text file
+		for (Person p : persons) // Writing every person Records into output text file
 		{
 			writer.write(p.firstName + " ");
 			writer.write(p.lastName + " ");
