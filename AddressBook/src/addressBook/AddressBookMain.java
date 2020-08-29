@@ -40,9 +40,6 @@ public class AddressBookMain {
 			case 5:
 				ab1.closeAddressBook();
 				break;
-			case 6:
-				ab1.quit();
-				break;
 			default:
 				System.out.println("please enter your choice from the menu");
 			}

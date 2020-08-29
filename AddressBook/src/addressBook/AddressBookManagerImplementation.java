@@ -176,6 +176,8 @@ public class AddressBookManagerImplementation implements AddressBookManagerInter
 
 	@Override
 	public void quit() {
+		// TODO Auto-generated method stub
 
 	}
+
 }
