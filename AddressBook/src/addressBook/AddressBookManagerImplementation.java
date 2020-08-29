@@ -136,16 +136,18 @@ public class AddressBookManagerImplementation implements AddressBookManagerInter
 				ab.editPerson(name1, number);
 				break;
 			case 3:
-				ab.deletePerson();
+				System.out.println("Enter the phone number of the person u want to delete-");
+				String number1 = sci.next();
+				ab.deletePerson(name1, number1);
 				break;
 			case 4:
 				ab.searchPerson(name1);
 				break;
 			case 5:
-				ab.sortByZip();
+				ab.sortByZip(name1);
 				break;
 			case 6:
-				ab.sortByNames();
+				ab.sortByNames(name1);
 				break;
 			case 7:
 				ab.display();

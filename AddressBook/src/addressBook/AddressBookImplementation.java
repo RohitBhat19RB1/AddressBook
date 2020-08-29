@@ -1,11 +1,15 @@
 package addressBook;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class AddressBookImplementation implements AddressBookInterface {
@@ -256,17 +260,49 @@ public class AddressBookImplementation implements AddressBookInterface {
 
 	}
 
-	public void sortByNames() {
+	public void sortByNames(String n) {
+		// Creating BufferedReader object to read the input text file
+		BufferedReader reader = new BufferedReader(new FileReader("C:\\AddressBook\\" + n));
+		String currentLine = reader.readLine(); // Reading person records one by one
+		String firstName = "";
+		String zipCode = "";
+		String lastName = "";
+		String pNum = "";
+		String state = "";
+		String city = "";
 
+		while (currentLine != null) {
+			String[] personDetail = currentLine.split(" ");
+			String name = personDetail[0];
+			persons.add(new Person(firstName, lastName, city, state, zipCode, pNum)); // Creating Student object for
+																						// every person record and
+																						// adding it to ArrayList
+			currentLine = reader.readLine();
+		}
+
+		Collections.sort(persons, new nameCompare()); // Sorting ArrayList studentRecords based on names
+
+		BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\AddressBook\\temp.txt")); // Creating
+																									// BufferedWriter
+																									// object to write
+																									// into output text
+																									// file
+		for (Person p : persons) // Writing every Records into output text file
+		{
+			writer.write(p.firstName + " ");
+			writer.write(p.lastName + " ");
+			writer.write(p.city + " ");
+			writer.write(p.state + " ");
+			writer.write(p.zipCode + " ");
+			writer.write(p.pNum + " ");
+			writer.newLine();
+		}
+
+		reader.close(); // Closing the resources
+		writer.close();
 	}
 
 	public void display() {
-
-	}
-
-	@Override
-	public void editPerson() {
-		// TODO Auto-generated method stub
 
 	}
 
