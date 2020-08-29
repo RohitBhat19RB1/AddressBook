@@ -194,6 +194,20 @@ public class AddressBookManagerImplementation implements AddressBookManagerInter
 
 	@Override
 	public void saveAsAddressBook() {
+		System.out.println("Enter the AddressBook name you want to rename(with extension)-");
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(System.in);
+		String name = sc.next();
+		System.out.println("Enter the new name for AddressBook(with same extension) -");
+		String newname = sc.next();
+		File newFile = new File("C:\\AddressBook\\" + name);
+		File renFile = new File("C:\\AddressBook\\" + newname);
+		if (newFile.renameTo(renFile)) {
+			System.out.println(newFile.getName() + "renamed to" + renFile.getName());
+		} else {
+			System.out.println("an error occured");
+		}
+		renFile.delete();
 
 	}
 
