@@ -342,7 +342,34 @@ public class AddressBookImplementation implements AddressBookInterface {
 	}
 
 	public void display() {
-
+		System.out.println("--- Total AddressBooks present ---");
+		try {
+			File myObj = new File("C:\\AddressBook\\");
+			if (myObj.createNewFile()) {
+				System.out.println("File created: " + myObj.getName());
+			} else {
+				System.out.println("File already exists.");
+			}
+		} catch (IOException e) {
+			System.out.println("An error occurred.");
+			e.printStackTrace();
+		}
+		System.out.println("Enter the addressBook you want to open ");
+		@SuppressWarnings("resource")
+		Scanner ab = new Scanner(System.in);
+		String nam = ab.next();
+		System.out.println(" --Contents in the addressbook--");
+		try {
+			File myObj = new File("C:\\AddressBook\\" + nam);
+			if (myObj.createNewFile()) {
+				System.out.println("File created: " + myObj.getName());
+			} else {
+				System.out.println("File already exists.");
+			}
+		} catch (IOException e) {
+			System.out.println("An error occurred.");
+			e.printStackTrace();
+		}
 	}
 
 }
