@@ -164,8 +164,52 @@ public class AddressBookImplementation implements AddressBookInterface {
 		}
 	}
 
-	public void deletePerson() {
+	public void deletePerson(String n, String num) {
+		String firstName = "";
+		String lastName = "";
+		String city = "";
+		String state = "";
+		String zipCode = "";
+		String pNum = "";
+		Scanner x;
+		File oldFile = new File("C:\\AddressBook\\" + n);
+		File newFile = new File("C:\\AddressBook\\temp.txt");
 
+		try {
+			File myObj = new File("C:\\AddressBook\\" + n);
+			FileWriter fw = new FileWriter(myObj, true);
+			PrintWriter pw = new PrintWriter(fw, true);
+
+			x = new Scanner(new File("C:\\AddressBook\\" + n));
+			x.useDelimiter("[ \n]");
+			while (x.hasNext()) {
+				firstName = x.next();
+				lastName = x.next();
+				city = x.next();
+				state = x.next();
+				zipCode = x.next();
+				pNum = x.next();
+				if (!pNum.equals(num)) {
+					Person p = new Person(firstName, lastName, city, state, zipCode, pNum);
+					persons.add(p);
+					pw.println(p.getfirstName() + " ");
+					pw.println(p.getlastName() + " ");
+					pw.println(p.getcity() + " ");
+					pw.println(p.getstate() + " ");
+					pw.println(p.getzipCode() + " ");
+					pw.println(p.getpNum() + " ");
+				}
+			}
+			x.close();
+			pw.close();
+			newFile.delete();
+			File dump = new File("C:\\AddressBook\\" + n);
+			oldFile.renameTo(dump);
+			System.out.println("Successfully deleted the record");
+
+		} catch (Exception e) {
+			System.out.println("error");
+		}
 	}
 
 	public void searchPerson(String n) {
