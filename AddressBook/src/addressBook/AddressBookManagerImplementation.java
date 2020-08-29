@@ -1,9 +1,13 @@
 package addressBook;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -164,7 +168,27 @@ public class AddressBookManagerImplementation implements AddressBookManagerInter
 	}
 
 	@Override
-	public void saveAddressBook() {
+	public void saveAddressBook() throws FileNotFoundException, IOException, ClassNotFoundException {
+		String firstName = "";
+		String zipCode = "";
+		String lastName = "";
+		String PhoneNumber = "";
+		String state = "";
+		String city = "";
+		Person p1 = new Person(firstName, lastName, city, state, zipCode, PhoneNumber);
+		@SuppressWarnings("resource")
+		ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("Person.txt"));
+		out.writeObject(p1);
+		@SuppressWarnings("resource")
+		ObjectInputStream in = new ObjectInputStream(new FileInputStream("Person.txt"));
+		Person p2 = (Person) in.readObject();
+
+		System.out.println(p2.getfirstName() + " ");
+		System.out.println(p2.getlastName() + " ");
+		System.out.println(p2.getcity() + " ");
+		System.out.println(p2.getstate() + " ");
+		System.out.println(p2.getzipCode() + " ");
+		System.out.println(p2.getPhoneNumber() + " ");
 
 	}
 
